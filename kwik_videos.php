@@ -199,7 +199,7 @@ endif;
 
 
 
-foreach (glob(WP_PLUGIN_DIR."/kwik_videos/widgets/*.php") as $inc_filename){
+foreach (glob(WP_PLUGIN_DIR."/kwik-videos/widgets/*.php") as $inc_filename){
     include $inc_filename;
 }
 
