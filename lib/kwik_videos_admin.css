@@ -1,0 +1,13 @@
+.loading {
+	background:transparent url('loader.gif') no-repeat left center;
+	padding-left:20px;
+}
+#video_source {
+}	
+#kv_video_details p {
+	margin-bottom:0;
+}
+.column-cover {
+	width:75px
+}
+#kv_s3_settings_section{display:none;}
