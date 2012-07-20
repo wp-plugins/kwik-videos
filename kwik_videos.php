@@ -179,7 +179,7 @@ function kwik_videos_setup() {
 				'edit_item' => __( 'Edit Video' ),
 				'menu_name' => __( 'Videos' )
 			),
-			'menu_icon' => __( WP_PLUGIN_URL . '/kwik_videos/lib/video.png' ),
+			'menu_icon' => __( WP_PLUGIN_URL . '/kwik-videos/lib/video.png' ),
 			'menu_position' => 7,			
 			
 		'supports' => array('title','editor','thumbnail', 'comments'),
