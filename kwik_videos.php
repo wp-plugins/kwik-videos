@@ -10,7 +10,7 @@ Description: A plugin for adding an easy to manage video gallery to your website
 
 Author: Kevin Chappell
 
-Version: 1.002
+Version: 1.003
 
 Author URI: http://kevin-chappell.com
 
@@ -96,7 +96,7 @@ function kv_player_width() {
 
 	$kv_options = get_option('kwik_videos_options');
 
-	echo "<input id='player_width' type='text' size='40' name='kwik_videos_options[player_width]' value='{$kv_options['player_width']}' />";
+	echo "<input id='player_width' type='text' size='40' name='kwik_videos_options[player_width]' value='{$kv_options['player_width']}' /><em>ex. 100% or 100px</em>";
 
 }
 
@@ -106,7 +106,7 @@ function kv_player_height() {
 
 	$kv_options = get_option('kwik_videos_options');
 
-	echo "<input id='player_height' type='text' size='40' name='kwik_videos_options[player_height]' value='{$kv_options['player_height']}' />";
+	echo "<input id='player_height' type='text' size='40' name='kwik_videos_options[player_height]' value='{$kv_options['player_height']}' /> <em>ex. 100% or 100px</em>";
 
 }
 
@@ -437,16 +437,10 @@ function add_kv_player($content)
 
 
 		$kwik_player  .= '<div class="video-js-box">
-
-    <video id="kv_video" class="video-js" width="'.$kv_options['player_width'].'" height="'.$kv_options['player_height'].'" style="height:'.$kv_options['player_height'].'; width:'.$kv_options['player_width'].'" controls="controls" autoplay="autoplay" preload="auto" poster="'.$cover_url.'">';
-
-	
-
-	
+    <video id="kv_video" class="video-js vjs-default-skin" width="'.trim($kv_options['player_width'], "px").'" height="'.trim($kv_options['player_height'], "px").'" style="height:'.$kv_options['player_height'].'; width:'.$kv_options['player_width'].'" controls="controls" autoplay="autoplay" preload="auto" data-setup="{}" poster="'.$cover_url.'">';
 
 		foreach($videos as $video){
-
-			// Set the video resource to be used by the flash fallback        
+			// Set the video resource to be used by the flash fallback 
 
 			if (strstr($video, 'rtmp')) {
 
@@ -466,40 +460,21 @@ function add_kv_player($content)
 
 			}
 
-			
-
 			$file_ext = pathinfo($video, PATHINFO_EXTENSION);
-
-			
-
-
-
 			$kwik_player .= '<source src="'.$video.'" type=\''.kv_mimeType($video).'\'/>';
-
-			
-
 			
 
 		} // end foreach videos
-
 	
 
         $kwik_player .= '
-
-            <object width="'.$kv_options['player_width'].'" height="'.$kv_options['player_height'].'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik-videos/lib/universalPlayer.swf" name="live_video_object" >
-
+            <object width="'.trim($kv_options['player_width'], "px").'" height="'.trim($kv_options['player_height'], "px").'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik-videos/lib/universalPlayer.swf" name="live_video_object" >
                 <param value="true" name="allowfullscreen">
-
                 <param name="wmode" value="opaque" />
-
                 <param value="always" name="allowscriptaccess">
-
                 <param value="high" name="quality">
-
                 <param name="bgcolor" value="#ffffff"/>
-
                 <param value="player.style.global='.$kv_options['player_theme'].'&amp;player.start.' . $video_resource . '&amp;player.controls.hd=false&amp;player.start.paused=false&amp;player.start.cover='.$cover_url.' name="flashvars">
-
             </object></video></div>';
 
 			
