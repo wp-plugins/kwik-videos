@@ -242,7 +242,7 @@ function add_kv_player($content)
 		} // end foreach videos
 	
         $kwik_player .= '
-            <object width="'.$kv_options['player_width'].'" height="'.$kv_options['player_height'].'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik_videos/lib/universalPlayer.swf" name="live_video_object" >
+            <object width="'.$kv_options['player_width'].'" height="'.$kv_options['player_height'].'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik-videos/lib/universalPlayer.swf" name="live_video_object" >
                 <param value="true" name="allowfullscreen">
                 <param name="wmode" value="opaque" />
                 <param value="always" name="allowscriptaccess">
@@ -503,7 +503,7 @@ function kv_video_details() {
 	
 	
 // all these echos will be cleaned up, promise!
-echo '<span id="checkvars" style="display:none">'.WP_PLUGIN_URL . '/kwik_videos/lib/upload_s3.php</span>';
+echo '<span id="checkvars" style="display:none">'.WP_PLUGIN_URL . '/kwik-videos/lib/upload_s3.php</span>';
 
 		echo '
 		<div id="video_upload_wrap">
@@ -628,7 +628,7 @@ function kv_save_attachment_fields($post, $attachment) {
 add_action('wp_print_styles', 'kv_add_style');
 function kv_add_style() {
 	
-	$kv_css = WP_PLUGIN_URL . '/kwik_videos/lib/kwik_videos.css';
+	$kv_css = WP_PLUGIN_URL . '/kwik-videos/lib/kwik_videos.css';
 	wp_register_style('kv_css', $kv_css);
 	wp_enqueue_style('kv_css');
 
@@ -639,7 +639,7 @@ function kv_add_style() {
 add_action('wp_enqueue_scripts', 'kv_add_script');
 function kv_add_script()
 {      
-    wp_enqueue_script('kwik_gallery', plugins_url('/kwik_videos/lib/kwik_videos.js'), array('jquery'));      
+    wp_enqueue_script('kwik_gallery', plugins_url('/kwik-videos/lib/kwik_videos.js'), array('jquery'));      
 }
 
 
@@ -691,7 +691,7 @@ function kv_mimeType($filename) {
    $fileext = substr(strrchr($filename, '.'), 1);
    if (empty($fileext)) return (false);
    $regex = "/^([\w\+\-\.\/]+)\s+(\w+\s)*($fileext\s)/i";
-   $lines = file(WP_PLUGIN_DIR.'/kwik_videos/lib/mime_types.txt');
+   $lines = file(WP_PLUGIN_DIR.'/kwik-videos/lib/mime_types.txt');
    foreach($lines as $line) {
       if (substr($line, 0, 1) == '#') continue; // skip comments
       $line = rtrim($line) . " ";
