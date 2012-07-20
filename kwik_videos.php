@@ -4,7 +4,7 @@ Plugin Name: Kwik Videos
 Plugin URI: http://kevin-chappell.com/kwik-videos
 Description: A plugin for adding an easy to manage video gallery to your website. Features include Amazon S3 integration and membership level based video availability.
 Author: Kevin Chappell
-Version: 1.001
+Version: 1.002
 Author URI: http://kevin-chappell.com
 */
 
@@ -647,7 +647,7 @@ function kv_add_script()
 add_action( 'admin_enqueue_scripts', 'kv_add_admin_script' ,10,1);
 function kv_add_admin_script($hook) {
 	 $screen = get_current_screen();
-    if ( 'settings_page_kwik_videos/kwik_videos' == $hook || 'post.php' == $hook && 'videos' == $screen->post_type || 'post-new.php' == $hook && 'videos' == $screen->post_type ){
+    if ( 'settings_page_kwik_videos/kwik-videos' == $hook || 'post.php' == $hook && 'videos' == $screen->post_type || 'post-new.php' == $hook && 'videos' == $screen->post_type ){
        wp_enqueue_script( 'kwik_video_admin_script', plugins_url('/lib/kwik_videos_admin.js', __FILE__) );
 	   wp_register_style( 'kwik_video_admin_css', plugins_url('/lib/kwik_videos_admin.css', __FILE__)  );
        wp_enqueue_style( 'kwik_video_admin_css' );

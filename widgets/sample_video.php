@@ -110,7 +110,7 @@ class Sample_Videos_Widget extends WP_Widget {
 		} // end foreach videos
 	
         $kwik_player .= '
-            <object width="'.$kv_widget_width.'" height="'.$kv_widget_height.'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik_videos/lib/universalPlayer.swf" name="live_video_object" >
+            <object width="'.$kv_widget_width.'" height="'.$kv_widget_height.'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik-videos/lib/universalPlayer.swf" name="live_video_object" >
                 <param value="true" name="allowfullscreen">
                 <param name="wmode" value="opaque" />
                 <param value="always" name="allowscriptaccess">
