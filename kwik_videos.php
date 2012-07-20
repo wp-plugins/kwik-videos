@@ -4,7 +4,7 @@ Plugin Name: Kwik Videos
 Plugin URI: http://kevin-chappell.com/kwik-videos
 Description: A plugin for adding an easy to manage video gallery to your website. Features include Amazon S3 integration and membership level based video availability.
 Author: Kevin Chappell
-Version: 1
+Version: 1.001
 Author URI: http://kevin-chappell.com
 */
 
