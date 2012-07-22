@@ -2,8 +2,8 @@ Kwik Videos is a plugin that makes adding a video content type to your WordPress
 
 Features include:
 
-	HTML5 Video player
-	Multiple file formats in single upload
+    HTML5 Video player
+    Multiple file formats in single upload
     Amazon S3 integration with AJAX upload
     Video Category Taxonomies
     Ability to set custom video covers
@@ -25,3 +25,10 @@ playlists
 
 For support, find me on twitter.
 @kevinchappell
+
+
+CHANGELOG:
+
+
+Version - 1.004
+	added ogv and webm mime types to WordPress permitted mimetypes.
