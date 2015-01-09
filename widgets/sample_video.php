@@ -84,7 +84,7 @@ class Sample_Videos_Widget extends WP_Widget {
 		$cover = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'medium' );
 		$cover_url = $cover['0'];	
 		// get video source	
-        $video_sources = get_post_meta(get_the_ID(), '_source', true);
+        $video_sources = get_post_meta(get_the_ID(), 'kv_source', true);
 		$videos = explode(",", $video_sources);
 
 		$kwik_player  .= '<div class="video-js-box">
@@ -110,7 +110,7 @@ class Sample_Videos_Widget extends WP_Widget {
 		} // end foreach videos
 	
         $kwik_player .= '
-            <object width="'.trim($kv_options['player_width'], "px").'" height="'.trim($kv_options['player_height'], "px").'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik-videos/lib/universalPlayer.swf" name="live_video_object" >
+            <object width="'.trim($kv_options['player_width'], "px").'" height="'.trim($kv_options['player_height'], "px").'" id="live_video_object" type="application/x-shockwave-flash" data="' . get_bloginfo('url') . '/wp-content/plugins/kwik-videos/lib/players/default/universalPlayer.swf" name="live_video_object" >
                 <param value="true" name="allowfullscreen">
                 <param name="wmode" value="opaque" />
                 <param value="always" name="allowscriptaccess">
